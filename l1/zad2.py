@@ -44,7 +44,7 @@ class GeneratorWH:
         filename = f'wh_numbers_step_{step}.txt'
         k, k_n = np.loadtxt(filename, unpack=True)
         plt.figure()
-        plt.plot(k, k_n, 'ro') 
+        plt.plot(k, k_n, '.') 
         plt.grid(linestyle=':')
         plt.xlabel('k_n')
         plt.ylabel(f'k_n+{step}')
@@ -54,7 +54,7 @@ class GeneratorWH:
 
 def main():
     generatorwh1 = GeneratorWH()
-    generatorwh1.generate(seed=[3,3,3],count=500)
+    generatorwh1.generate(seed=[3,3,3],count=2500)
 
     generatorwh1.save_to_file(step=1)
     generatorwh1.plot(step=1)

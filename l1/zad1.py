@@ -49,9 +49,9 @@ class Generator:
 
 def main():
     generator1 = Generator(a=17, m=pow(2,17)-1, c=0)
-    generator1.generate(seed=3,count=2500)
+    generator1.generate(seed=6,count=2500)
     generator2 = Generator(a=85, m=pow(2,17)-1, c=0)
-    generator2.generate(seed=3,count=2500)
+    generator2.generate(seed=6,count=2500)
 
     generator1.save_to_file(step=1)
     generator1.plot(step=1)
