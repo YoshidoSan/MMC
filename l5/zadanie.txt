@@ -1,0 +1,9 @@
+zad 3
+Próbujemy symulować „mobilność” osobników.
+Ponieważ siatka ma sztywną strukturę, 
+nie można „przenieść” osobnika w inne miejsce, lecz można zamienić go z innym (tzn. zamienić statusy osobników). 
+Może do tego posłużyć metoda Populacja::zamien_osobniki(). 
+Jak częstotliwość takich zamian wpływa na rozprzestrzenianie się epidemii?
+
+
+W kolejnym dniu każdy osobnik ma 'alfa' szansy że zamieni się miejscami z innym losowym osobnikiem
