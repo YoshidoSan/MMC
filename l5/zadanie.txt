@@ -4,6 +4,80 @@ Ponieważ siatka ma sztywną strukturę,
 nie można „przenieść” osobnika w inne miejsce, lecz można zamienić go z innym (tzn. zamienić statusy osobników). 
 Może do tego posłużyć metoda Populacja::zamien_osobniki(). 
 Jak częstotliwość takich zamian wpływa na rozprzestrzenianie się epidemii?
-
-
 W kolejnym dniu każdy osobnik ma 'alfa' szansy że zamieni się miejscami z innym losowym osobnikiem
+
+testy do sprawka:
+0.0
+  Szczyt zachorowaÅ„ przypada na dzieÅ„ 32
+  Liczba zaraÅ¼onych w szczycie to 83061 (8% populacji)
+  Liczba zaraÅ¼onych przekraczaÅ‚a 5% populacji przez 40 dni
+  Liczba zaraÅ¼onych utrzymuje siÄ™ poniÅ¼ej 5% populacji od dnia 63
+0.1
+  Szczyt zachorowaÅ„ przypada na dzieÅ„ 24
+  Liczba zaraÅ¼onych w szczycie to 75590 (7% populacji)
+  Liczba zaraÅ¼onych przekraczaÅ‚a 5% populacji przez 20 dni
+  Liczba zaraÅ¼onych utrzymuje siÄ™ poniÅ¼ej 5% populacji od dnia 85
+0.3
+  Szczyt zachorowaÅ„ przypada na dzieÅ„ 21
+  Liczba zaraÅ¼onych w szczycie to 82508 (8% populacji)
+  Liczba zaraÅ¼onych przekraczaÅ‚a 5% populacji przez 19 dni
+  Liczba zaraÅ¼onych utrzymuje siÄ™ poniÅ¼ej 5% populacji od dnia 89
+0.5
+  Szczyt zachorowaÅ„ przypada na dzieÅ„ 19
+  Liczba zaraÅ¼onych w szczycie to 88816 (8% populacji)
+  Liczba zaraÅ¼onych przekraczaÅ‚a 5% populacji przez 18 dni
+  Liczba zaraÅ¼onych utrzymuje siÄ™ poniÅ¼ej 5% populacji od dnia 91
+0.7
+  Szczyt zachorowaÅ„ przypada na dzieÅ„ 18
+  Liczba zaraÅ¼onych w szczycie to 92847 (9% populacji)
+  Liczba zaraÅ¼onych przekraczaÅ‚a 5% populacji przez 17 dni
+  Liczba zaraÅ¼onych utrzymuje siÄ™ poniÅ¼ej 5% populacji od dnia 93
+0.9
+  Szczyt zachorowaÅ„ przypada na dzieÅ„ 17
+  Liczba zaraÅ¼onych w szczycie to 95933 (9% populacji)
+  Liczba zaraÅ¼onych przekraczaÅ‚a 5% populacji przez 17 dni
+  Liczba zaraÅ¼onych utrzymuje siÄ™ poniÅ¼ej 5% populacji od dnia 93
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+najpierw bez 0 potem 0.1 do 0.7 rosnie co 0.2 (20 eksperymentow)
+
+Szczyt zachorowaÅ„ przypada na dzieÅ„ 32
+Liczba zaraÅ¼onych w szczycie to 83061 (8% populacji)
+Liczba zaraÅ¼onych przekraczaÅ‚a 5% populacji przez 40 dni
+Liczba zaraÅ¼onych utrzymuje siÄ™ poniÅ¼ej 5% populacji od dnia 63
+
+Szczyt zachorowaÅ„ przypada na dzieÅ„ 24
+Liczba zaraÅ¼onych w szczycie to 75590 (7% populacji)
+Liczba zaraÅ¼onych przekraczaÅ‚a 5% populacji przez 20 dni
+Liczba zaraÅ¼onych utrzymuje siÄ™ poniÅ¼ej 5% populacji od dnia 85
+
+Szczyt zachorowaÅ„ przypada na dzieÅ„ 21
+Liczba zaraÅ¼onych w szczycie to 82508 (8% populacji)
+Liczba zaraÅ¼onych przekraczaÅ‚a 5% populacji przez 19 dni
+Liczba zaraÅ¼onych utrzymuje siÄ™ poniÅ¼ej 5% populacji od dnia 89
+
+Szczyt zachorowaÅ„ przypada na dzieÅ„ 19
+Liczba zaraÅ¼onych w szczycie to 88816 (8% populacji)
+Liczba zaraÅ¼onych przekraczaÅ‚a 5% populacji przez 18 dni
+Liczba zaraÅ¼onych utrzymuje siÄ™ poniÅ¼ej 5% populacji od dnia 91
+
+Szczyt zachorowaÅ„ przypada na dzieÅ„ 18
+Liczba zaraÅ¼onych w szczycie to 92847 (9% populacji)
+Liczba zaraÅ¼onych przekraczaÅ‚a 5% populacji przez 17 dni
+Liczba zaraÅ¼onych utrzymuje siÄ™ poniÅ¼ej 5% populacji od dnia 93

@@ -188,20 +188,25 @@ public:
     // Kolejna "tura" symulacji: chorzy majÄ… szansÄ™ wyzdrowieÄ‡, podatni mogÄ… siÄ™ zaraziÄ‡. 
     void kolejny_dzien() {
         std::list<Koordynaty> chorzy_nowi;
-        
-        //============================================
+        //==============================================================================================================
+        //==============================================================================================================
+        //==============================================================================================================
         // dwa losowe osobniki mają szansę że zamienią się miejscami
-        double travel_param = 0.6;
-        long liczba = liczebnosc();
-        for(int i=0; i<liczba; i++){
-            // losujemy dwa różne osobniki
-            Koordynaty wsp_travel_1, wsp_travel_2;
-            do {wsp_travel_1 = rng.losuj_koordynaty(); wsp_travel_2 = rng.losuj_koordynaty();} while ((wsp_travel_1.x==wsp_travel_2.x)&&(wsp_travel_1.y==wsp_travel_2.y));
-            // szansa na podróż
-            if (rng.losuj_od_0_do_1() < travel_param){zamien_osobniki(wsp_travel_1, wsp_travel_2);}
-        }
-        //============================================
         
+        double travel_param = 0.9;
+        long liczba = liczebnosc();
+        for(int i=0; i<liczba/2; i++){
+            // szansa na podróż
+            if (rng.losuj_od_0_do_1() < travel_param){
+                // losujemy dwa różne osobniki
+                Koordynaty wsp_travel_1, wsp_travel_2;
+                do {wsp_travel_1 = rng.losuj_koordynaty(); wsp_travel_2 = rng.losuj_koordynaty();} while ((wsp_travel_1.x==wsp_travel_2.x)&&(wsp_travel_1.y==wsp_travel_2.y));
+                zamien_osobniki(wsp_travel_1, wsp_travel_2);}
+        }
+        //==============================================================================================================
+        //==============================================================================================================
+        //==============================================================================================================
+
         // Dla kaÅ¼dego chorego...
         for (Koordynaty& chory_x_y: chorzy_x_y) {
             // ...znajdujemy jego podatnych sÄ…siadÃ³w...
@@ -358,13 +363,13 @@ int main() {
     // Pierwiastek z liczby osobnikÃ³w (bok kwadratowej siatki).
     // Nie naleÅ¼y baÄ‡ siÄ™ liczb rzÄ™du 1000 (tysiÄ…ca), choÄ‡ 
     // ciekawe ciekawe wyniki moÅ¼na uzyskaÄ‡ i dla 100.
-    const int bok_mapy = 100;
+    const int bok_mapy = 1000;
 
     // Liczba osobnikÃ³w zaraÅ¼onych na poczÄ…tku epidemii.
-    const long chorzy_dnia_zero = 10;
+    const long chorzy_dnia_zero = 500;
 
     // Liczba osobnikÃ³w zaszczepionych przed nastaniem epidemii.
-    const long zaszczepieni_dnia_zero = 30;
+    const long zaszczepieni_dnia_zero = 10000;
 
     // PrawdopodobieÅ„stwo zaraÅ¼enia kaÅ¼dego z sÄ…siadÃ³w 
     // danego osobnika w jednostce czasu.
@@ -374,10 +379,10 @@ int main() {
     const float gamma = 0.25;
 
     // Liczba niezaleÅ¼nych (!) eksperymentÃ³w Monte Carlo.
-    const int ile_eksperymentow = 3;
+    const int ile_eksperymentow = 20;
 
     // Ile dni trwa pojedynczy eksperyment.
-    const int ile_dni = 10;
+    const int ile_dni = 120;
 
     // Jedno miasto posÅ‚uÅ¼y nam do caÅ‚ej serii eksperymentÃ³w Monte Carlo.
     Populacja  miasto(bok_mapy);
@@ -402,6 +407,9 @@ int main() {
             podatni.dodaj_dzisiejsze_dane(miasto.ilu_podatnych());
             ozdrowiali.dodaj_dzisiejsze_dane(miasto.ilu_ozdrowialych());
             miasto.kolejny_dzien();
+            if(dzien % 20 == 0){
+                miasto.zapisz_do_pliku("wyniki/mapa_" + std::to_string(dzien) + ".txt");
+            }
         }
 
         // UWAGA! Pliki NIE SÄ„ CZYSZCZONE pomiÄ™dzy eksperymentami, co umoÅ¼liwa
@@ -416,7 +424,7 @@ int main() {
         if (eksp_nr == ile_eksperymentow-1) {            
 
             // UWAGA! Plik z symbolicznie zapisanymi stanami wszystkich osobnikÃ³w moÅ¼e byÄ‡ duÅ¼y!
-            miasto.zapisz_do_pliku("wyniki/mapa.txt");
+            miasto.zapisz_do_pliku("wyniki/mapa_final.txt");
 
             std::cout << "\n\nPodsumowanie ostatniego z " << ile_eksperymentow << " eksperymentÃ³w Monte Carlo" << std::endl;
             std::cout << "  Szczyt zachorowaÅ„ przypada na dzieÅ„ " << chorzy.kiedy_maksimum() << std::endl;
